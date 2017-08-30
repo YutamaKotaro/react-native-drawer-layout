@@ -260,6 +260,8 @@ export default class DrawerLayout extends Component {
     e: EventType,
     { moveX, dx, dy }: PanResponderEventType,
   ) => {
+    if (this.props.drawerLockMode === 'locked-close') return false;
+
     if (!dx || !dy || Math.abs(dx) < MIN_SWIPE_DISTANCE) {
       return false;
     }
